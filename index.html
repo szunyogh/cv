@@ -151,6 +151,125 @@
       margin-top: 40px;
       font-size: 12px;
     }
+
+    /* ---------- Vicces dialógus ---------- */
+    .dlg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .dlg-overlay.open {
+      display: flex;
+    }
+
+    .dlg {
+      width: 100%;
+      max-width: 460px;
+      background: #1e1e1e;
+      border: 1px solid var(--guide-color);
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      animation: dlg-pop 0.25s ease-out;
+    }
+
+    @keyframes dlg-pop {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .dlg-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background: var(--bg-sidebar);
+      color: var(--text-dim);
+      font-size: 12px;
+    }
+
+    .dlg-body {
+      padding: 24px 22px 8px;
+    }
+
+    .dlg-title {
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 0 12px 0;
+    }
+
+    .dlg-text {
+      color: #d4d4d4;
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .dlg-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      padding: 20px 22px 22px;
+    }
+
+    .dlg-btn {
+      font-family: inherit;
+      font-size: 14px;
+      padding: 9px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .dlg-btn.yes {
+      background: var(--accent-cyan);
+      color: #0a0d10;
+      font-weight: bold;
+    }
+
+    .dlg-btn.yes:hover {
+      filter: brightness(1.15);
+    }
+
+    .dlg-btn.no {
+      background: transparent;
+      color: #d4d4d4;
+      border-color: var(--guide-color);
+    }
+
+    .dlg-btn.no:hover {
+      background: #2a2d2e;
+    }
+
+    @media (max-width: 900px) {
+      .page-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .main-content {
+        padding: 30px 20px 30px 40px;
+      }
+    }
   </style>
 </head>
 
@@ -372,6 +491,138 @@
 </pre>
     </div>
   </div>
+
+  <!-- Vicces dialógus -->
+  <div class="dlg-overlay" id="dlgOverlay" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
+    <div class="dlg">
+      <div class="dlg-bar">
+        <span id="dlgStep">// dialog 1/5</span>
+        <span>hiring.dart</span>
+      </div>
+      <div class="dlg-body">
+        <h3 class="dlg-title" id="dlgTitle"></h3>
+        <p class="dlg-text" id="dlgText"></p>
+      </div>
+      <div class="dlg-actions" id="dlgActions"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var EMAIL = 'tamasszunyogh60@gmail.com';
+      var SUBJECT = 'Lesz munkád, nem fogsz éhen halni 🍕';
+
+      // yes = pozitív gomb (emailre navigál), no = negatív gomb (következő dialógus)
+      // az utolsó elemnek nincs yes/no, csak close gombja van
+      var steps = [
+        {
+          title: 'Hú, tényleg legörgettél idáig? 🎉',
+          text: 'Örülök, hogy végigolvastad a CV-met! Akarsz nekem munkát adni?',
+          yes: 'Igen, jöhetsz! 💼',
+          no: 'Nem, kösz'
+        },
+        {
+          title: 'Naaa, kérlek! 🥺',
+          text: 'Tudok Fluttert, és még a spagettikódot is rendbe teszem. Nagyon jó fej vagyok, ígérem!',
+          yes: 'Jó, meggyőztél',
+          no: 'Akkor is nem'
+        },
+        {
+          title: 'Hozok kávét is! ☕',
+          text: 'Meg saját széket, és nem eszem meg a hűtőből a más kaját. Csak az enyémet.',
+          yes: 'Na jó, ez már komoly ajánlat',
+          no: 'Még mindig nem'
+        },
+        {
+          title: 'Nem lesz bug. 🐛',
+          text: 'Jó, ez nem igaz, de legalább gyorsan kijavítom őket. És commitolok is, nem csak nézem.',
+          yes: 'Felveszlek, na!',
+          no: 'Hajthatatlan vagyok'
+        },
+        {
+          title: 'Utolsó esély... 🙏',
+          text: 'Térdre ereszkedek a Flutter widget fa előtt. Egyetlen setState, és minden jobb lehet!',
+          yes: 'Jó, nyertél, felveszlek!',
+          no: 'Mégis nem'
+        },
+        {
+          title: 'Jó, akkor mindegy, hagyjuk... 😢',
+          text: 'Köszi, hogy legalább végigolvastad. Jó napot!',
+          close: 'Bezár'
+        }
+      ];
+
+      var overlay = document.getElementById('dlgOverlay');
+      var titleEl = document.getElementById('dlgTitle');
+      var textEl = document.getElementById('dlgText');
+      var stepEl = document.getElementById('dlgStep');
+      var actionsEl = document.getElementById('dlgActions');
+
+      var index = 0;
+      var shown = false;
+
+      function makeBtn(label, cls, handler) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'dlg-btn ' + cls;
+        b.textContent = label;
+        b.addEventListener('click', handler);
+        return b;
+      }
+
+      function closeDialog() {
+        overlay.classList.remove('open');
+      }
+
+      function openMail() {
+        closeDialog();
+        window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(SUBJECT);
+      }
+
+      function render() {
+        var s = steps[index];
+        titleEl.textContent = s.title;
+        textEl.textContent = s.text;
+        stepEl.textContent = '// dialog ' + (index + 1) + '/' + steps.length;
+        actionsEl.innerHTML = '';
+
+        if (s.close) {
+          actionsEl.appendChild(makeBtn(s.close, 'yes', closeDialog));
+        } else {
+          actionsEl.appendChild(makeBtn(s.no, 'no', function () {
+            index++;
+            render();
+          }));
+          actionsEl.appendChild(makeBtn(s.yes, 'yes', openMail));
+        }
+      }
+
+      function openDialog() {
+        index = 0;
+        render();
+        overlay.classList.add('open');
+      }
+
+      function isAtBottom() {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        return window.innerHeight + scrolled >= document.documentElement.scrollHeight - 2;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!shown && isAtBottom()) {
+          shown = true; // csak egyszer ugrik fel oldalbetöltésenként
+          openDialog();
+        }
+      }, { passive: true });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) {
+          closeDialog();
+        }
+      });
+    })();
+  </script>
+
 </body>
 
 </html>

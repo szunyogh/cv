@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Szunyogh Tamás - CV</title>
+  <style>
+    :root {
+      --bg-sidebar: #0a0d10;
+      --bg-main: #0f1719;
+      --guide-color: #3A515B;
+      --img-border: #3b9eff;
+      --accent-cyan: #0cd1d3;
+      --text-dim: #7d8590;
+    }
+
+    /* VS Code szintaxis színek */
+    .kw {
+      color: #569cd6;
+    }
+
+    .typ {
+      color: #4ec9b0;
+    }
+
+    .str {
+      color: #ce9178;
+    }
+
+    .com {
+      color: #6a9955;
+      font-style: italic;
+    }
+
+    .mth {
+      color: #dcdcaa;
+    }
+
+    .pnc {
+      color: #d4d4d4;
+    }
+
+    /* Hivatkozások: ugyanolyan színűek, mint a string, hoverre aláhúzás */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-main);
+      font-family: 'Consolas', 'Courier New', Courier, monospace;
+      color: #d4d4d4;
+      display: block;
+    }
+
+    .page-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 520px;
+      flex-shrink: 0;
+      padding: 40px 30px;
+      background-color: var(--bg-sidebar);
+      box-sizing: border-box;
+    }
+
+    .main-content {
+      position: relative;
+      flex-grow: 1;
+      padding: 40px 40px 40px 60px;
+      background-color: var(--bg-main);
+      box-sizing: border-box;
+    }
+
+    /* Szaggatott "indent guide" vonal a főrész bal oldalán */
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom,
+          var(--guide-color) 0 8px,
+          transparent 8px 28px);
+    }
+
+    .profile-wrapper {
+      margin-bottom: 20px;
+    }
+
+    /* Négyzetes profilkép */
+    .profile-img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid var(--img-border);
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .name-title {
+      margin-bottom: 40px;
+    }
+
+    .name-title h1 {
+      color: #ffffff;
+      font-size: 32px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+
+    .name-title h2 {
+      color: var(--accent-cyan);
+      font-size: 16px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+
+    .name-title p {
+      color: var(--text-dim);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-size: 14px;
+      line-height: 1.6;
+      tab-size: 2;
+    }
+
+    .page-indicator {
+      text-align: right;
+      color: #6a9955;
+      font-style: italic;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-container">
+    <div class="sidebar">
+      <div class="profile-wrapper">
+        <img src="IMG_0264.jpg" alt="Profile" class="profile-img">
+      </div>
+
+      <div class="name-title">
+        <h1>Szunyogh Tamás</h1>
+        <h2>Flutter / Mobilalkalmazás-fejlesztő</h2>
+        <p>Budapest</p>
+      </div>
+
+      <pre>
+<span class="kw">class</span> <span class="typ">Skills</span> <span class="pnc">{</span>
+  <span class="kw">static const</span> mobile <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+    <span class="str">'Flutter'</span>,
+    <span class="str">'Android Studio'</span>,
+    <span class="str">'Xcode'</span>,
+  <span class="pnc">];</span>
+  <span class="kw">static const</span> platform <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+    <span class="str">'iOS_Android'</span>,
+    <span class="str">'PWA'</span>,
+  <span class="pnc">];</span>
+  <span class="kw">static const</span> backend <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+    <span class="str">'JavaScript_TypeScript'</span>,
+    <span class="str">'NestJs'</span>,
+    <span class="str">'PostgreSQL'</span>,
+  <span class="pnc">];</span>
+  <span class="kw">static const</span> tools <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+    <span class="str">'VS Code'</span>,
+    <span class="str">'GitHub_GitLab'</span>,
+    <span class="str">'Firebase'</span>,
+    <span class="str">'Supabase'</span>,
+  <span class="pnc">];</span>
+<span class="pnc">}</span>
+
+<span class="kw">class</span> <span class="typ">Highlights</span> <span class="pnc">{</span>
+  <span class="kw">static const</span> projects <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+    <span class="str">'StarFinder'</span>,
+    <span class="str">'AppInGym'</span>,
+    <span class="str">'VoxPay'</span>,
+    <span class="str">'Formsi'</span>,
+    <span class="str">'AbsolutelyWoman (SwiftUI)'</span>,
+  <span class="pnc">];</span>
+  <span class="kw">static const int</span> yearsOfProgrammingExperience <span class="pnc">=</span> 5<span class="pnc">;</span>
+  <span class="kw">final</span> deployment <span class="pnc">=</span> <span class="str">'App Store / Google Play'</span><span class="pnc">;</span>
+  <span class="kw">final</span> focus <span class="pnc">=</span> <span class="str">'clean, maintainable Flutter'</span><span class="pnc">;</span>
+<span class="pnc">}</span>
+</pre>
+    </div>
+
+    <div class="main-content">
+      <pre>
+<span class="com">/// Flutter-focused mobile developer.
+/// Several years of practice in iOS/Android/Web/PWA development,
+/// native integrations, and deployment processes.</span>
+
+<span class="kw">class</span> <span class="typ">ApplicantProfile</span> <span class="pnc">{</span>
+  <span class="kw">final</span> <span class="typ">String</span> name <span class="pnc">=</span> <span class="str">'Szunyogh Tamás'</span><span class="pnc">;</span>
+  <span class="kw">final</span> <span class="typ">String</span> title <span class="pnc">=</span> <span class="str">'Flutter / Mobilalkalmazás-fejlesztő'</span><span class="pnc">;</span>
+  <span class="kw">final</span> <span class="typ">String</span> location <span class="pnc">=</span> <span class="str">'Budapest'</span><span class="pnc">;</span>
+  <span class="kw">final</span> <span class="typ">String</span> email <span class="pnc">=</span> <span class="str">'<a href="mailto:tamasszunyogh60@gmail.com">tamasszunyogh60@gmail.com</a>'</span><span class="pnc">;</span>
+  <span class="kw">final</span> <span class="typ">String</span> phone <span class="pnc">=</span> <span class="str">'<a href="tel:+36703859821">+36 70 385 9821</a>'</span><span class="pnc">;</span>
+  <span class="kw">final</span> <span class="typ">String</span> linkedIn <span class="pnc">=</span>
+      <span class="str">'<a href="https://www.linkedin.com/in/tamas-richard-szunyogh-191338214/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/tamas-richard-szunyogh-191338214/</a>'</span><span class="pnc">;</span>
+  <span class="kw">final</span> stopwatchReferences <span class="pnc">= &lt;</span><span class="typ">String</span><span
+    class="pnc">&gt;[</span>
+      <span class="str">'<a href="https://apps.apple.com/hu/app/szstopper%C3%B3ra/id6819005726?l=hu" target="_blank" rel="noopener noreferrer">https://apps.apple.com/hu/app/szstopper%C3%B3ra/id6819005726?l=hu</a>'</span><span class="pnc">,</span>
+      <span class="str">'<a href="https://play.google.com/store/apps/details?id=com.szunyoghtamas.stopwatch" target="_blank" rel="noopener noreferrer">https://play.google.com/store/apps/details?id=com.szunyoghtamas.stopwatch</a>'</span><span class="pnc">,</span>
+      <span class="str">'<a href="https://github.com/szunyogh/stopwatch" target="_blank" rel="noopener noreferrer">https://github.com/szunyogh/stopwatch</a>'</span><span class="pnc">,</span>
+  <span class="pnc">];</span>
+<span class="pnc">}</span>
+
+<span class="kw">class</span> <span class="typ">AboutMe</span> <span class="pnc">{</span>
+  <span class="kw">final</span> <span class="typ">String</span> shortDescription <span class="pnc">=</span>
+      <span class="str">'Flutter fókuszú mobilalkalmazás-fejlesztőként több éves '</span>
+      <span class="str">'tapasztalattal rendelkezem iOS, Android, web és PWA projektekben. '</span>
+      <span class="str">'Fontos számomra a tiszta, átlátható és karbantartható kód, '</span>
+      <span class="str">'valamint az, hogy a fejlesztés valódi üzleti és felhasználói '</span>
+      <span class="str">'értéket teremtsen. Önállóan és csapatban is felelősen dolgozom, '</span>
+      <span class="str">'az új feladatokhoz pedig gyorsan alkalmazkodom.'</span><span class="pnc">;</span>
+<span class="pnc">}</span>
+
+<span class="com">/// Professional experience
+/// Recent jobs and freelance projects in Dart style.</span>
+
+<span class="kw">class</span> <span class="typ">ProfessionalExperience</span> <span class="pnc">{</span>
+  <span class="kw">void</span> <span class="mth">voxInfoKft</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2025.02.03 - 2026.02.10'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'VoxInfo Kft.'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Flutter fejlesztő'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Flutter'</span>, <span class="str">'VoxPay'</span>, <span class="str">'App Store'</span>, <span class="str">'Google Play'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'VoxPay alkalmazás fejlesztése és naprakészen tartása '</span>
+        <span class="str">'Flutterben, hibajavítások elvégzése, valamint App Store / '</span>
+        <span class="str">'Google Play deploy folyamatok kezelése.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+
+  <span class="kw">void</span> <span class="mth">selfEmployed</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2022.06.01 - 2025.02.03'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Egyéni vállalkozó'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Mobil és webapp fejlesztő'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Flutter'</span>, <span class="str">'PWA'</span>, <span class="str">'Swift/Kotlin'</span>, <span class="str">'Nest.js REST API'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Cégeknek és magánszemélyeknek készített iOS/Android '</span>
+        <span class="str">'alkalmazások és PWA webappok. Natív kódok, geofence, '</span>
+        <span class="str">'background service és natív UI elemek integrálása Flutter '</span>
+        <span class="str">'rendszerbe; kisebb Nest.js REST API backend.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+
+  <span class="kw">void</span> <span class="mth">gamerpro</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2021.08.10 - 2021.11.24'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Gamerpro'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Mobil alkalmazás fejlesztő'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Flutter'</span>, <span class="str">'iOS'</span>, <span class="str">'Android'</span>, <span class="str">'Web'</span>, <span class="str">'gRPC'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Belső projekt fejlesztésében való részvétel Android/iOS '</span>
+        <span class="str">'alkalmazás és weboldal oldalon; Flutter mellett gRPC '</span>
+        <span class="str">'használata.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+
+  <span class="kw">void</span> <span class="mth">reactivo</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2021.02.10 - 2021.06.10'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Reactivo'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Mobil alkalmazás fejlesztő'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Flutter'</span>, <span class="str">'iOS_Android'</span>, <span class="str">'Android Studio'</span>, <span class="str">'VS Code'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Belső projekteken és külső ügyfél által kért appokon végzett '</span>
+        <span class="str">'cross-platform mobilalkalmazás-fejlesztés Flutter '</span>
+        <span class="str">'keretrendszerrel.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+<span class="pnc">}</span>
+
+<span class="com">/// Additional experience, education, and language skills
+/// In a shortened, employer-friendly format.</span>
+
+<span class="kw">class</span> <span class="typ">ProfessionalExperienceContinued</span> <span class="pnc">{</span>
+  <span class="kw">void</span> <span class="mth">appsolutionKft</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2020.08.03 - 2021.01.28'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Appsolution Kft. (App-arak.hu)'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Mobil alkalmazás fejlesztő'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Flutter'</span>, <span class="str">'iOS_Android'</span>, <span class="str">'Xcode'</span>, <span class="str">'Android Studio'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Flutter alapú mobilalkalmazások fejlesztése külső '</span>
+        <span class="str">'megrendelőknek és belső fejlesztésű projektekhez. Natív szintű '</span>
+        <span class="str">'rálátás, iOS/Android fejlesztési környezetek használata.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+<span class="pnc">}</span>
+
+<span class="kw">class</span> <span class="typ">PreviousExperience</span> <span class="pnc">{</span>
+  <span class="kw">void</span> <span class="mth">csaladBaratOrszagBackend</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2019.12.01 - 2020.02.29'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Család Barát Ország'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Webfejlesztő (backend)'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Visual Studio Code'</span>, <span class="str">'MySQL'</span>, <span class="str">'Laravel/PHP'</span>,
+      <span class="str">'HTML/JavaScript'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Backend oldali webfejlesztési feladatok Laravel '</span>
+        <span class="str">'keretrendszerben, kisebb frontend oldali feladatokkal '</span>
+        <span class="str">'kiegészítve.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+
+  <span class="kw">void</span> <span class="mth">programmingHobbyLearning</span><span class="pnc">() {</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2015 - 2019'</span><span class="pnc">;</span>
+    <span class="kw">final</span> company <span class="pnc">=</span> <span class="str">'Önálló tanulás / gimnáziumi projektek'</span><span class="pnc">;</span>
+    <span class="kw">final</span> position <span class="pnc">=</span> <span class="str">'Programozói alapok'</span><span class="pnc">;</span>
+    <span class="kw">final</span> technologies <span class="pnc">= &lt;</span><span class="typ">String</span><span class="pnc">&gt;[</span>
+      <span class="str">'Visual Studio'</span>, <span class="str">'Xamarin'</span>, <span class="str">'C#'</span>, <span class="str">'Java'</span>, <span class="str">'Pascal'</span>,
+    <span class="pnc">];</span>
+    <span class="kw">final</span> description <span class="pnc">=</span>
+        <span class="str">'Emelt óraszámú informatika után önálló C# tanulás; kezdetben '</span>
+        <span class="str">'konzolos programok, később UI felülettel ellátott Windows '</span>
+        <span class="str">'alkalmazások és Xamarin alapú mobilos megvalósítások. '</span>
+        <span class="str">'Példaprojektek: rajzolóprogram, számológép és amőba játék.'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+<span class="pnc">}</span>
+
+<span class="kw">class</span> <span class="typ">Education</span> <span class="pnc">{</span>
+  <span class="kw">void</span> <span class="mth">vasvariPalHighSchool</span><span class="pnc">() {</span>
+    <span class="kw">final</span> institution <span class="pnc">=</span> <span class="str">'Nyíregyházi Vasvári Pál Gimnázium'</span><span class="pnc">;</span>
+    <span class="kw">final</span> specialization <span class="pnc">=</span> <span class="str">'Informatika tagozat'</span><span class="pnc">;</span>
+    <span class="kw">final</span> qualification <span class="pnc">=</span> <span class="str">'Érettségi'</span><span class="pnc">;</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2015 - 2019'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+
+  <span class="kw">void</span> <span class="mth">obudaUniversity</span><span class="pnc">() {</span>
+    <span class="kw">final</span> institution <span class="pnc">=</span> <span class="str">'Óbudai Egyetem'</span><span class="pnc">;</span>
+    <span class="kw">final</span> faculty <span class="pnc">=</span> <span class="str">'Kandó Kálmán Villamosmérnöki Kar'</span><span class="pnc">;</span>
+    <span class="kw">final</span> major <span class="pnc">=</span> <span class="str">'Villamosmérnök szak - nem befejezett'</span><span class="pnc">;</span>
+    <span class="kw">final</span> period <span class="pnc">=</span> <span class="str">'2019 - 2021'</span><span class="pnc">;</span>
+  <span class="pnc">}</span>
+<span class="pnc">}</span>
+
+<span class="kw">class</span> <span class="typ">LanguageSkills</span> <span class="pnc">{</span>
+  <span class="kw">final</span> english <span class="pnc">=</span>
+      <span class="str">'Szakmai dokumentáció olvasása, írásos kommunikáció alap-középszinten | '</span>
+      <span class="str">'szóbeli kommunikációfejlesztés alatt.'</span><span class="pnc">;</span>
+  <span class="kw">final</span> german <span class="pnc">=</span>
+      <span class="str">'Passzív, alapszintű tudás; egyszerű kommunikációs '</span>
+      <span class="str">'helyzetekben használható.'</span><span class="pnc">;</span>
+<span class="pnc">}</span>
+</pre>
+    </div>
+  </div>
+</body>
+
+</html>

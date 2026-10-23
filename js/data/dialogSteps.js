@@ -1,11 +1,3 @@
-// A dialógus lépései (szövegek). Új lépés felvételéhez elég ide beszúrni egy objektumot.
-//
-// Mezők:
-//   title, text  – megjelenő szöveg
-//   yes, no      – gombfeliratok (a "yes" mindig a levélküldést indítja)
-//   dodge        – hányszor ugorjon el az egér elől a "no" gomb (opcionális, csak desktopon)
-//   close        – ha meg van adva, ez az utolsó lépés egyetlen "Bezár" gombbal
-
 export const DIALOG_STEPS = [
   {
     title: 'Hú, tényleg legörgettél idáig? 🎉',

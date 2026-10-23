@@ -1,5 +1,3 @@
-// Megnyitja az alapértelmezett levelezőprogramot előre kitöltött címzettel és tárggyal.
-
 import { CONTACT_EMAIL, MAIL_SUBJECT } from './config.js';
 
 export function openMailClient() {

@@ -1,5 +1,3 @@
-// Canvas alapú konfetti-effekt. Használat: createConfetti(canvas).fire()
-
 import { CONFETTI_COLORS } from './config.js';
 
 export function createConfetti(canvas) {

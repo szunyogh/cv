@@ -1,6 +1,3 @@
-// A "Akarsz nekem munkát adni?" dialógus: megjelenítés és lépésről lépésre haladás.
-// A hangot (sfx) és az "Igen" gomb hatását (onAccept) kívülről kapja, így nem függ tőlük.
-
 import { createDodger } from './dodge.js';
 
 const SOUND_DELAY = 380;

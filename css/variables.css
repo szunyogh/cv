@@ -1,22 +1,17 @@
-/* Design tokenek: minden szín egy helyen */
 :root {
-  /* Felületek */
   --bg-sidebar: #0a0d10;
   --bg-main: #0f1719;
   --bg-dialog: #1e1e1e;
   --bg-hover: #2a2d2e;
 
-  /* Vonalak, keretek */
   --guide-color: #3A515B;
   --img-border: #3b9eff;
 
-  /* Szövegek */
   --text: #d4d4d4;
   --text-strong: #ffffff;
   --text-dim: #7d8590;
   --accent-cyan: #0cd1d3;
 
-  /* Szintaxiskiemelés (VS Code Dark+) */
   --syn-keyword: #569cd6;
   --syn-type: #4ec9b0;
   --syn-string: #ce9178;

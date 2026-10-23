@@ -1,16 +1,12 @@
-// A "Nem" gomb elől elugró dialógus (csak egérrel, desktopon).
-// A dialógus elem arrébb csúszik a viewporton belül, amikor az egér a gombra ér.
-
-const VIEWPORT_MARGIN = 12;   // ennyire közelítheti meg a képernyő szélét
-const MIN_JUMP = 120;         // legalább ennyit ugorjon
-const SAFE_PADDING = 24;      // a gomb körüli "tiltott zóna" az új pozícióban
-const COOLDOWN_MS = 330;      // ennyi ideig nem reagál ugrás után (egyezzen a CSS transition-nel)
+const VIEWPORT_MARGIN = 12;
+const MIN_JUMP = 120;
+const SAFE_PADDING = 24;
+const COOLDOWN_MS = 330;
 const MAX_TRIES = 40;
 
-export function createDodger(element) {
-  const canHover = window.matchMedia &&
-    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const HOVER_POINTERS = new Set(['mouse', 'pen']);
 
+export function createDodger(element) {
   let dodgesLeft = 0;
   let busy = false;
   let offX = 0;
@@ -26,7 +22,7 @@ export function createDodger(element) {
   }
 
   function tryDodge(event, button) {
-    if (!canHover || event.pointerType !== 'mouse') return;
+    if (!HOVER_POINTERS.has(event.pointerType)) return;
     if (dodgesLeft <= 0 || busy) return;
 
     const vw = window.innerWidth;
@@ -34,7 +30,6 @@ export function createDodger(element) {
     const rect = element.getBoundingClientRect();
     const btn = button.getBoundingClientRect();
 
-    // Az elem eredeti (eltolás nélküli) pozíciója
     const baseLeft = rect.left - offX;
     const baseTop = rect.top - offY;
 

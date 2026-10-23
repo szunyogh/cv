@@ -1,8 +1,6 @@
-// Mobil nézet: a profil sidebar kihúzható panelként (drawer) működik.
-
 import { MOBILE_BREAKPOINT } from './config.js';
 
-const SWIPE_CLOSE_DISTANCE = 60; // px balra húzás, ami bezárja a panelt
+const SWIPE_CLOSE_DISTANCE = 60;
 
 export function initDrawer() {
   const toggle = document.getElementById('drawerToggle');
@@ -27,7 +25,6 @@ export function initDrawer() {
     if (window.innerWidth > MOBILE_BREAKPOINT) setOpen(false);
   });
 
-  // Balra swipe-pal bezárható
   let startX = null;
   drawer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;

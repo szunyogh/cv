@@ -1,5 +1,3 @@
-// Web Audio alapú hangeffektek (külső hangfájl nélkül) és némítás.
-
 const AudioContextClass = window.AudioContext || window.webkitAudioContext;
 const UNLOCK_EVENTS = ['pointerdown', 'touchstart', 'touchend', 'keydown', 'click'];
 
@@ -18,7 +16,6 @@ function getContext() {
   return ctx;
 }
 
-// A böngészők csak felhasználói interakció után engedik elindítani a hangot
 function unlock() {
   const c = getContext();
   if (c && c.state === 'suspended') c.resume();

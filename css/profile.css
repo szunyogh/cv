@@ -1,0 +1,58 @@
+/* Sidebar profil: fotó, név, titulus */
+.profile-wrapper {
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 3px solid var(--img-border);
+  box-sizing: border-box;
+  display: block;
+}
+
+.name-title {
+  margin-bottom: 40px;
+}
+
+.name-title h1 {
+  color: var(--text-strong);
+  font-size: 32px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.name-title h2 {
+  color: var(--accent-cyan);
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.name-title p {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .profile-img {
+    max-width: 220px;
+  }
+
+  .name-title {
+    margin-bottom: 28px;
+  }
+
+  .name-title h1 {
+    font-size: 26px;
+  }
+
+  .name-title h2,
+  .name-title p {
+    font-size: 15px;
+  }
+}

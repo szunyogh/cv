@@ -1,0 +1,47 @@
+/* Dart-stílusú kódblokk és szintaxiskiemelő tokenek */
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+.kw {
+  color: var(--syn-keyword);
+}
+
+.typ {
+  color: var(--syn-type);
+}
+
+.str {
+  color: var(--syn-string);
+}
+
+.com {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+.mth {
+  color: var(--syn-method);
+}
+
+.pnc {
+  color: var(--syn-punctuation);
+}
+
+@media (max-width: 1100px) {
+  .sidebar pre {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 700px) {
+  pre {
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+}

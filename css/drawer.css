@@ -1,0 +1,129 @@
+/* Mobil felső sáv + kihúzható profil (drawer)
+   Csak <=700px-en aktív; a layout.css után kell betölteni, mert felülírja a .sidebar értékeit. */
+.mobile-bar,
+.drawer-scrim,
+.drawer-head {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 800;
+    padding: 6px 12px;
+    min-height: 56px;
+    box-sizing: border-box;
+    background: var(--bg-sidebar);
+    border-bottom: 1px solid var(--guide-color);
+  }
+
+  .mb-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--accent-cyan);
+    background: transparent;
+    border: 1px solid var(--guide-color);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .mb-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .mb-name {
+    color: var(--text-strong);
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .mb-role {
+    color: var(--text-dim);
+    font-size: 11px;
+  }
+
+  .mb-name,
+  .mb-role {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* A sidebar mobilon kihúzható panellé alakul */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(86vw, 340px);
+    z-index: 900;
+    padding: 0 20px 28px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  body.drawer-open .sidebar {
+    transform: none;
+    visibility: visible;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    transition: transform 0.25s ease;
+  }
+
+  .drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin: 0 -20px 16px;
+    padding: 10px 20px;
+    background: var(--bg-sidebar);
+    color: var(--syn-comment);
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .drawer-close {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--guide-color);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .drawer-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 850;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  body.drawer-open .drawer-scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.drawer-open {
+    overflow: hidden;
+  }
+}

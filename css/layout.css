@@ -1,0 +1,65 @@
+/* Oldalszerkezet: sidebar + főtartalom
+   A mobil drawer viselkedés (<=700px) a drawer.css-ben van, ami ez után töltődik be. */
+.page-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.sidebar {
+  width: 520px;
+  flex-shrink: 0;
+  padding: 40px 30px;
+  background-color: var(--bg-sidebar);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.main-content {
+  position: relative;
+  flex-grow: 1;
+  padding: 40px 40px 40px 60px;
+  background-color: var(--bg-main);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+/* Szaggatott függőleges vezetővonal */
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom,
+      var(--guide-color) 0 8px,
+      transparent 8px 28px);
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 320px;
+    padding: 32px 22px;
+  }
+
+  .main-content {
+    min-width: 0;
+    padding: 32px 28px 40px 48px;
+  }
+
+  .main-content::before {
+    left: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    padding: 20px 12px 40px 28px;
+  }
+
+  .main-content::before {
+    left: 12px;
+  }
+}

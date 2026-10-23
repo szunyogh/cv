@@ -1,0 +1,143 @@
+/* "Akarsz nekem munkát adni?" dialógus */
+.dlg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.dlg-overlay.open {
+  display: flex;
+}
+
+body.dlg-open {
+  overflow: hidden;
+}
+
+.dlg {
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-dialog);
+  border: 1px solid var(--guide-color);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: dlg-pop 0.25s ease-out;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes dlg-pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.dlg-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--bg-sidebar);
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.dlg-mute {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  margin-left: 8px;
+}
+
+.dlg-body {
+  padding: 24px 22px 8px;
+}
+
+.dlg-title {
+  color: var(--text-strong);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+}
+
+.dlg-text {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.dlg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 20px 22px 22px;
+}
+
+.dlg-btn {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.dlg-btn.yes {
+  background: var(--accent-cyan);
+  color: var(--bg-sidebar);
+  font-weight: bold;
+}
+
+.dlg-btn.yes:hover {
+  filter: brightness(1.15);
+}
+
+.dlg-btn.no {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--guide-color);
+}
+
+.dlg-btn.no:hover {
+  background: var(--bg-hover);
+}
+
+@media (max-width: 700px) {
+  .dlg-body {
+    padding: 20px 18px 4px;
+  }
+
+  .dlg-title {
+    font-size: 18px;
+  }
+
+  .dlg-text {
+    font-size: 14px;
+  }
+
+  .dlg-actions {
+    flex-direction: column-reverse;
+    padding: 16px 18px 20px;
+  }
+
+  .dlg-btn {
+    width: 100%;
+    padding: 13px 16px;
+  }
+}

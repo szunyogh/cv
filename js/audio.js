@@ -8,7 +8,7 @@ function getContext() {
   if (!AudioContextClass) return null;
   if (!ctx) {
     try {
-      if (navigator.audioSession) navigator.audioSession.type = 'playback';
+      if (navigator.audioSession) navigator.audioSession.type = 'ambient';
       ctx = new AudioContextClass();
     } catch (e) {
       return null;

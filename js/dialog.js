@@ -2,6 +2,22 @@ import { createDodger } from './dodge.js';
 
 const SOUND_DELAY = 380;
 
+let pointerX = -1;
+let pointerY = -1;
+
+function trackPointer(e) {
+  pointerX = e.clientX;
+  pointerY = e.clientY;
+}
+
+window.addEventListener('pointermove', trackPointer, { passive: true });
+window.addEventListener('pointerdown', trackPointer, { passive: true, capture: true });
+
+function isUnderPointer(el) {
+  const hit = document.elementFromPoint(pointerX, pointerY);
+  return !!hit && (hit === el || el.contains(hit));
+}
+
 function byId(id) {
   return document.getElementById(id);
 }
@@ -54,9 +70,28 @@ export function createDialog({ steps, sfx, onAccept }) {
     }
 
     const noBtn = makeButton(step.no, 'no', next);
-    noBtn.addEventListener('pointerenter', (e) => dodger.tryDodge(e, noBtn));
+    const yesBtn = makeButton(step.yes, 'yes', onAccept);
     actionsEl.appendChild(noBtn);
-    actionsEl.appendChild(makeButton(step.yes, 'yes', onAccept));
+    actionsEl.appendChild(yesBtn);
+
+    if (step.dodge) {
+      let armed = isUnderPointer(noBtn);
+
+      noBtn.addEventListener('pointerenter', (e) => {
+        if (armed) return;
+        dodger.tryDodge(e, noBtn);
+      });
+
+      noBtn.addEventListener('pointerleave', () => {
+        armed = false;
+      });
+
+      noBtn.addEventListener('pointerdown', (e) => {
+        if (!armed) return;
+        dodger.tryDodge(e, noBtn);
+        armed = false;
+      });
+    }
   }
 
   function open() {

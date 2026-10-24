@@ -19,8 +19,9 @@ body.dlg-open {
 }
 
 .dlg {
-  width: 100%;
-  max-width: 460px;
+  width: max-content;
+  min-width: 360px;
+  max-width: min(640px, 100%);
   background: var(--bg-dialog);
   border: 1px solid var(--guide-color);
   border-radius: 8px;
@@ -82,15 +83,16 @@ body.dlg-open {
 
 .dlg-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  justify-content: flex-end;
   padding: 20px 22px 22px;
 }
 
 .dlg-btn {
+  flex: 1 1 0;
+  min-width: 0;
   font-family: inherit;
   font-size: 14px;
+  text-align: center;
   padding: 9px 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -136,6 +138,7 @@ body.dlg-open {
   }
 
   .dlg-btn {
+    flex: none;
     width: 100%;
     padding: 13px 16px;
   }

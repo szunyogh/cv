@@ -28,6 +28,14 @@ pre {
   color: var(--syn-method);
 }
 
+.var {
+  color: var(--syn-variable);
+}
+
+.num {
+  color: var(--syn-number);
+}
+
 .pnc {
   color: var(--syn-punctuation);
 }

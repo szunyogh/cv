@@ -31,7 +31,7 @@ function makeButton(label, variant, handler) {
   return btn;
 }
 
-export function createDialog({ steps, sfx, onAccept }) {
+export function createDialog({ steps, sfx, onAccept, onGiveUp }) {
   const overlay = byId('dlgOverlay');
   const titleEl = byId('dlgTitle');
   const textEl = byId('dlgText');
@@ -42,9 +42,13 @@ export function createDialog({ steps, sfx, onAccept }) {
   let index = 0;
 
   function close() {
+    const gaveUp = overlay.classList.contains('open') && !!steps[index].close;
+
     overlay.classList.remove('open');
     document.body.classList.remove('dlg-open');
     dodger.reset(0);
+
+    if (gaveUp && onGiveUp) onGiveUp();
   }
 
   function next() {

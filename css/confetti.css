@@ -6,3 +6,43 @@
   pointer-events: none;
   z-index: 1100;
 }
+
+.sob-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1100;
+}
+
+.heartbreak {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1101;
+}
+
+.heartbreak svg {
+  width: min(42vmin, 240px);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 24px rgba(255, 93, 143, 0.55));
+}
+
+.hb-half {
+  transform-box: view-box;
+  transform-origin: 50px 88px;
+}
+
+.hb-crack {
+  fill: none;
+  stroke: var(--bg-main);
+  stroke-width: 1.8;
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}

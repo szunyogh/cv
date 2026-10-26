@@ -1,0 +1,22 @@
+<svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hbGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5d8f"/>
+      <stop offset="1" stop-color="#d81b54"/>
+    </linearGradient>
+    <clipPath id="hbLeft">
+      <polygon points="-10,-10 50,-10 50,0 45,12 55,24 44,38 56,52 46,66 53,78 50,90 50,100 -10,100"/>
+    </clipPath>
+    <clipPath id="hbRight">
+      <polygon points="110,-10 50,-10 50,0 45,12 55,24 44,38 56,52 46,66 53,78 50,90 50,100 110,100"/>
+    </clipPath>
+    <path id="hbShape" d="M50 88 C20 62 2 44 2 26 C2 12 13 2 27 2 C37 2 46 8 50 16 C54 8 63 2 73 2 C87 2 98 12 98 26 C98 44 80 62 50 88 Z"/>
+  </defs>
+  <g class="hb-half hb-left" clip-path="url(#hbLeft)">
+    <use href="#hbShape" fill="url(#hbGrad)"/>
+  </g>
+  <g class="hb-half hb-right" clip-path="url(#hbRight)">
+    <use href="#hbShape" fill="url(#hbGrad)"/>
+  </g>
+  <polyline class="hb-crack" points="50,0 45,12 55,24 44,38 56,52 46,66 53,78 50,90" pathLength="1"/>
+</svg>

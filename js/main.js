@@ -7,8 +7,10 @@ import { createIntroDialog } from './intro.js';
 import { initDrawer } from './drawer.js';
 import { openMailClient } from './mail.js';
 import { onceAtBottom } from './scroll.js';
+import { createHeartbreak } from './heartbreak.js';
 
 const confetti = createConfetti(document.getElementById('confetti'));
+const heartbreak = createHeartbreak();
 let accepting = false;
 
 function handleAccept() {
@@ -28,7 +30,8 @@ function handleAccept() {
 const dialog = createDialog({
   steps: DIALOG_STEPS,
   sfx,
-  onAccept: handleAccept
+  onAccept: handleAccept,
+  onGiveUp: heartbreak.play
 });
 
 initAudio(document.getElementById('dlgMute'));

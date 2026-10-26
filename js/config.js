@@ -1,6 +1,8 @@
 export const CONTACT_EMAIL = 'tamasszunyogh60@gmail.com';
 export const MAIL_SUBJECT = 'Lesz munkád, nem fogsz éhen halni 🍕';
 
+export const ATS_CV_URL = 'ats_safety_cv.pdf';
+
 export const MAIL_DELAY = 1600;
 
 export const MOBILE_BREAKPOINT = 700;

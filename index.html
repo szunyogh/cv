@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/confetti.css">
 </head>
 
-<body>
+<body class="dlg-open">
 
   <header class="mobile-bar">
     <button class="mb-btn" id="drawerToggle" type="button" aria-label="Profil megnyitása" aria-controls="drawer"
@@ -288,6 +288,31 @@
         <p class="dlg-text" id="dlgText"></p>
       </div>
       <div class="dlg-actions" id="dlgActions"></div>
+    </div>
+  </div>
+
+  <div class="dlg-overlay open" id="introOverlay" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <div class="dlg dlg-wide">
+      <div class="dlg-bar">
+        <span>// figyelmeztetés</span>
+        <span>warning.dart</span>
+      </div>
+      <div class="dlg-body">
+        <h3 class="dlg-title" id="introTitle">Állj! Ez egy fejlesztős CV 🚧</h3>
+        <p class="dlg-text">Ez az önéltrajz kifejezetten szakmabelieknek készült: kódnak van álcázva, és csak a
+          fejlesztők fogják érteni, mi folyik itt. Másnak zavaros lehet, mint egy beágyazott ternary operátor.</p>
+        <p class="dlg-text">Ha HR-es vagy, vagy az ATS-nek kell az önéltrajz, ne szenvedj, nyomd meg az első gombot: ott
+          a normális, ATS-biztos CV, ami nem fogja megbolondítani a robotot.</p>
+        <p class="dlg-text">Ha nem vagy szakmabeli, de szeretnél egy jót röhögni, zárd be ezt az ablakot, és görgess az
+          oldal aljára. Megéri. 🍿</p>
+        <p class="dlg-text">És ha közben meggondolnád magad: a <b>machineReadable</b> szó alatt továbbra is ott vár az
+          ATS-biztos CV.</p>
+      </div>
+      <div class="dlg-actions">
+        <button class="dlg-btn no" id="introClose" type="button">Nem vagyok HR, jöhet a röhögés 🍿</button>
+        <a class="dlg-btn yes" id="introAts" href="ats_safety_cv.pdf" target="_blank" rel="noopener noreferrer">Mutasd
+          az ATS-biztos CV-t 🤖</a>
+      </div>
     </div>
   </div>
 

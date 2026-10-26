@@ -37,7 +37,7 @@ export function createDialog({ steps, sfx, onAccept }) {
   const textEl = byId('dlgText');
   const stepEl = byId('dlgStep');
   const actionsEl = byId('dlgActions');
-  const dodger = createDodger(document.querySelector('.dlg'));
+  const dodger = createDodger(overlay.querySelector('.dlg'));
 
   let index = 0;
 

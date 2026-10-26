@@ -143,3 +143,31 @@ body.dlg-open {
     padding: 13px 16px;
   }
 }
+
+.dlg-text+.dlg-text {
+  margin-top: 10px;
+}
+
+a.dlg-btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+}
+
+.dlg.dlg-wide {
+  max-width: min(820px, 100%);
+}
+
+@media (min-width: 701px) {
+  .dlg-wide .dlg-btn {
+    white-space: nowrap;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+a.dlg-btn:hover {
+  text-decoration: none;
+}
